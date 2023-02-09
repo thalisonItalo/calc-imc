@@ -13,25 +13,25 @@
 
 
     <div class="container">
-        
+
         <div class="title"> calcule o seu IMC</div>
 
         <div class="input">
             Nome:
-            <input type="nome">
+            <input type="text" id="nome">
         </div>
 
         <div class="input">
             Altura:
-            <input type="altura">
+            <input type="text" id="altura">
         </div>
 
         <div class="input">
             Peso:
-            <input type="peso">
+            <input type="text" id="peso">
         </div>
 
-        <button id="calcular" onclick="calculandoIMC()" > Calcular </button>
+        <button id="calcular" onclick="imc()"> Calcular </button>
 
 
         <div class="result" id="resultado"> </div>

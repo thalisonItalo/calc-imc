@@ -1,31 +1,32 @@
-let Calcular = document.getElementById(calcular);
-function calculandoIMC() {
 
-    let peso = document.getElementById("peso").value;
-    let altura = document.getElementById("altura").value / 100;
-    let resultado = document.getElementById("resultado")
+function imc() {
+    let nome = document.querySelector("#nome").value
+    let peso = document.querySelector("#peso").value
+    let altura = document.querySelector("#altura").value
+    let resultado = document.querySelector("#resultado")
 
-    if (altura !== "" && peso !== "") {
+    if (nome !== '' && altura !== '' && peso !== '') {
+        //tofixed para casas decimais
 
-        let imc = (peso / (altura * altura)).toFixed(2);
-        let mensagem = ""
-        
-        if (imc < 18.5) {
-            mensagem = "Abaixo do peso!"
-        } else if (imc < 25) {
-            mensagem = "Você está com o peso ideal!"
-        } else if (imc < 30) {
-            mensagem = "Você está levemente acima do peso!"
-        } else if (imc < 35) {
-            mensagem = "Cuidado! Obesidade grau I"
-        } else if (imc < 40) {
-            mensagem = "Cuidado! Obesidade grau II"
+        valorImc = (peso / (altura * altura)).toFixed(1)
+        let tipoImc
+
+        if (valorImc < 18.5) {
+            tipoImc = "Abaixo do peso!"
+        } else if (valorImc < 25) {
+            tipoImc = "Você está com o peso ideal!"
+        } else if (valorImc < 30) {
+            tipoImc = "Você está levemente acima do peso!"
+        } else if (valorImc < 35) {
+            tipoImc = "Obesidade grau I"
+        } else if (valorImc < 40) {
+            tipoImc = "Obesidade grau II"
         } else {
-            mensagem = "Cuidado! Obesidade grau III"
+            tipoImc = "Obesidade grau III"
         }
-        resultado.textContent = `Seu IMC é ${imc}! ${mensagem}`;
+        resultado.textContent = `${nome} Seu IMC é ${valorImc}! e você esta ${tipoImc} `
     } else {
         resultado.textContent = "Preencha todos os campos!!!"
     }
+
 }
-calcular.addEventListener('click', calculandoIMC);
